@@ -20,7 +20,7 @@ class ZapatosDescripcion extends StatelessWidget {
           SizedBox(height: 20.0,),
           Text(this.titulo,style: TextStyle(fontSize: 30,fontWeight: FontWeight.w700),),
           SizedBox(height: 20.0,),
-          Text(this.descripcion,style: TextStyle(color: Colors.black54,height: 1.6),),  
+          Text(this.descripcion,style: TextStyle(color: Colors.black54,height: 1.2),),  
         ],
       ),
     );
