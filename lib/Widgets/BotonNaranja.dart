@@ -4,7 +4,8 @@ class BotonNaranja extends StatelessWidget {
   final String texto;
   final double alto;
   final double ancho;
-  BotonNaranja({@required this.texto, this.alto = 50.0, this.ancho=150.0});
+  final Color color;
+  BotonNaranja({@required this.texto, this.alto = 50.0, this.ancho=150.0, this.color = Colors.orange});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +14,7 @@ class BotonNaranja extends StatelessWidget {
       height: this.alto,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100.0),
-        color: Colors.orange
+        color: color
       ),
       child: Text("$texto", style: TextStyle(color: Colors.white),),
     );

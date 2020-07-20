@@ -19,13 +19,60 @@ class PantallaDescripsion extends StatelessWidget {
                         titulo: 'Nike Air Max 720',
                         descripcion: "The Nike Air Max 720 goes bigger than ever before with Nike's taller Air unit yet, offering more air underfoot for unimaginable, all-day comfort. Has Air Max gone too far? We hope so.",
                       ),
-                      _MontoBuy()
+                      _MontoBuy(),
+                      _ColoresYMas()
                   ] 
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _ColoresYMas extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Stack(
+              children: [
+                Positioned(child: _BotonColor(color: Colors.blue,),left: 90,), 
+                Positioned(child: _BotonColor(color: Colors.red,),left: 60,), 
+                Positioned(child: _BotonColor(color: Colors.cyan,),left: 30,), 
+                _BotonColor(color: Colors.orange,),
+
+                ],
+            ),
+          ),
+
+          // Spacer(),
+
+          BotonNaranja(texto: "More related item",alto: 30.0,ancho: 170.0,color: Colors.orange[200],)
+        ],
+      ),
+    );
+  }
+}
+
+class _BotonColor extends StatelessWidget {
+  final Color color;
+  _BotonColor({@required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 45.0,
+      height: 45.0,
+      decoration: BoxDecoration(
+        color: Colors.red,
+        shape: BoxShape.circle
       ),
     );
   }
