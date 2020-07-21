@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shoesapp/Pages/PantallaDescripcion.dart';
-import 'package:shoesapp/Pages/ZapatoPage.dart';
  
 void main() => runApp(MyApp());
  

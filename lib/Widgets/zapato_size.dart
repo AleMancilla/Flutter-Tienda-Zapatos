@@ -47,7 +47,7 @@ class _ZapatoConSombra extends StatelessWidget {
           Positioned(
             bottom: 20.0,
             right: 0.0,
-            child: _sombra()
+            child: _Sombra()
           ),
           Image(image: AssetImage("assets/imgs/azul.png"),),
           
@@ -58,11 +58,7 @@ class _ZapatoConSombra extends StatelessWidget {
   }
 }
 
-class _sombra extends StatelessWidget {
-  const _sombra({
-    Key key,
-  }) : super(key: key);
-
+class _Sombra extends StatelessWidget { 
   @override
   Widget build(BuildContext context) {
     return Transform.rotate(
