@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:shoesapp/Widgets/BotonNaranja.dart';
 import 'package:shoesapp/Widgets/ZapatoDesc.dart';
@@ -106,10 +107,10 @@ class _ColoresYMas extends StatelessWidget {
           Expanded(
             child: Stack(
               children: [
-                Positioned(child: _BotonColor(color: Colors.blue,),left: 90,), 
-                Positioned(child: _BotonColor(color: Colors.red,),left: 60,), 
-                Positioned(child: _BotonColor(color: Colors.cyan,),left: 30,), 
-                _BotonColor(color: Colors.orange,),
+                Positioned(child: _BotonColor(color: Colors.blue,index: 1),left: 90,), 
+                Positioned(child: _BotonColor(color: Colors.red, index: 2),left: 60,), 
+                Positioned(child: _BotonColor(color: Colors.cyan,index: 3),left: 30,), 
+                _BotonColor(color: Colors.orange,index: 4),
 
                 ],
             ),
@@ -126,16 +127,20 @@ class _ColoresYMas extends StatelessWidget {
 
 class _BotonColor extends StatelessWidget {
   final Color color;
-  _BotonColor({@required this.color});
+  final int index ; 
+  _BotonColor({@required this.color, this.index});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 45.0,
-      height: 45.0,
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle
+    return FadeInLeft(
+      delay: Duration(milliseconds: this.index * 200 ),
+      child: Container(
+        width: 45.0,
+        height: 45.0,
+        decoration: BoxDecoration(
+          color: color,
+          shape: BoxShape.circle
+        ),
       ),
     );
   }
@@ -154,7 +159,11 @@ class _MontoBuy extends StatelessWidget {
           children: [
             Text("\$180",style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),),
             Spacer(),
-            BotonNaranja(texto: "Buy Now",alto: 40.0,ancho: 120.0,)
+            Bounce(
+              delay: Duration(seconds: 1),
+              from: 8.0,
+              child: BotonNaranja(texto: "Buy Now",alto: 40.0,ancho: 120.0,)
+            )
           ],
         ),
       ),
