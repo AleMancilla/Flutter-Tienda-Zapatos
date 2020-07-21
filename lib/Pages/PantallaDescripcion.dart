@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoesapp/Model/ZapatoModel.dart';
 import 'package:shoesapp/Widgets/BotonNaranja.dart';
 import 'package:shoesapp/Widgets/ZapatoDesc.dart';
 import 'package:shoesapp/Widgets/zapato_size.dart';
@@ -107,10 +109,10 @@ class _ColoresYMas extends StatelessWidget {
           Expanded(
             child: Stack(
               children: [
-                Positioned(child: _BotonColor(color: Colors.blue,index: 1),left: 90,), 
-                Positioned(child: _BotonColor(color: Colors.red, index: 2),left: 60,), 
-                Positioned(child: _BotonColor(color: Colors.cyan,index: 3),left: 30,), 
-                _BotonColor(color: Colors.orange,index: 4),
+                Positioned(child: _BotonColor(color: Colors.blue,index: 1, img: "assets/imgs/amarillo.png"),left: 90,), 
+                Positioned(child: _BotonColor(color: Colors.red, index: 2, img: "assets/imgs/azul.png"),left: 60,), 
+                Positioned(child: _BotonColor(color: Colors.cyan,index: 3, img: "assets/imgs/negro.png"),left: 30,), 
+                _BotonColor(color: Colors.orange,index: 4, img: "assets/imgs/verde.png"),
 
                 ],
             ),
@@ -128,18 +130,25 @@ class _ColoresYMas extends StatelessWidget {
 class _BotonColor extends StatelessWidget {
   final Color color;
   final int index ; 
-  _BotonColor({@required this.color, this.index});
+  final String img;
+  _BotonColor({@required this.color,@required this.index,@required this.img});
 
   @override
   Widget build(BuildContext context) {
+    ZapatoModel modelo = Provider.of<ZapatoModel>(context);
     return FadeInLeft(
       delay: Duration(milliseconds: this.index * 200 ),
-      child: Container(
-        width: 45.0,
-        height: 45.0,
-        decoration: BoxDecoration(
-          color: color,
-          shape: BoxShape.circle
+      child: GestureDetector(
+        onTap: (){
+          modelo.assetImage = img;
+        },
+        child: Container(
+          width: 45.0,
+          height: 45.0,
+          decoration: BoxDecoration(
+            color: color,
+            shape: BoxShape.circle
+          ),
         ),
       ),
     );
