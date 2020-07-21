@@ -10,7 +10,22 @@ class PantallaDescripsion extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            ZapatoSize(fullscreen : true),
+            Stack(
+              children: [
+                ZapatoSize(fullscreen : true),
+                Positioned(
+                  left: 10.0,
+                  top: 20.0,
+                  child: FloatingActionButton(
+                    elevation: 0.0,
+                    highlightElevation: 0.0,
+                    backgroundColor: Colors.transparent,
+                    child: Icon(Icons.chevron_left,size: 60.0,),
+                    onPressed: (){}
+                  ),
+                )
+              ],
+            ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
