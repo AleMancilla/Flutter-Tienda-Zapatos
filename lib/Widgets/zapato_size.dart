@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoesapp/Model/ZapatoModel.dart';
 import 'package:shoesapp/Pages/PantallaDescripcion.dart';
 
 class ZapatoSize extends StatelessWidget {
@@ -19,7 +21,7 @@ class ZapatoSize extends StatelessWidget {
           ),
         child: Container(
           width: double.infinity,
-          height: (this.fullscreen)?350:430.0,
+          height: (this.fullscreen)?350:380.0,
           decoration: BoxDecoration(
             color: Colors.orange[300],
             borderRadius: (this.fullscreen)?
@@ -117,24 +119,31 @@ class _TallaZapatoCaja extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 45.0,
-      height: 45.0,
-      // color: Colors.red,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: (numero == 9)?Colors.orange:Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-           BoxShadow(color: Color(0xffF1A23A),blurRadius: 10.0,offset: Offset(0, 5)),
-        ],
-      ),
-      child: Text("${numero.toString().replaceAll(".0", "")}",style: TextStyle(
-        color: (numero == 9)?Colors.white:Color(0xffF1A23A),
-        fontSize: 16.0,
-        fontWeight: FontWeight.bold
-      ),
-      
+
+    ZapatoModel modelo = Provider.of<ZapatoModel>(context);
+    return GestureDetector(
+      onTap: () {
+        modelo.talla = numero;
+      },
+      child: Container(
+        width: 45.0,
+        height: 45.0,
+        // color: Colors.red,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: (numero == modelo.talla)?Colors.orange:Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+             BoxShadow(color: Color(0xffF1A23A),blurRadius: 10.0,offset: Offset(0, 5)),
+          ],
+        ),
+        child: Text("${numero.toString().replaceAll(".0", "")}",style: TextStyle(
+          color: (numero == modelo.talla)?Colors.white:Color(0xffF1A23A),
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold
+        ),
+        
+        ),
       ),
     );
   }

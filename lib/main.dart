@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoesapp/Model/ZapatoModel.dart';
 import 'package:shoesapp/Pages/ZapatoPage.dart';
  
-void main() => runApp(MyApp());
+void main() { 
+  
+  return runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=>ZapatoModel()),
+      ],
+      child: MyApp()
+      )
+    );
+}
  
 class MyApp extends StatelessWidget {
   @override
