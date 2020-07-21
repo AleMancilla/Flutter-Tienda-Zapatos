@@ -10,7 +10,7 @@ class AgregarCarritoBoton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 100.0,
+      height: 70.0,
       padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         color: Colors.grey.withOpacity(0.1),
@@ -19,7 +19,7 @@ class AgregarCarritoBoton extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(width: 20.0,),
-          Text("Monto: \$$monto",style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold ),),
+          Text("Monto: \$$monto",style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold ),),
           Spacer(),
           BotonNaranja(texto: "Add to car")
         ],

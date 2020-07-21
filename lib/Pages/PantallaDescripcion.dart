@@ -12,7 +12,7 @@ class PantallaDescripsion extends StatelessWidget {
           children: [
             Stack(
               children: [
-                ZapatoSize(fullscreen : true),
+                Hero( tag: "clave1",child: ZapatoSize(fullscreen : true)),
                 Positioned(
                   left: 10.0,
                   top: 20.0,
@@ -21,7 +21,9 @@ class PantallaDescripsion extends StatelessWidget {
                     highlightElevation: 0.0,
                     backgroundColor: Colors.transparent,
                     child: Icon(Icons.chevron_left,size: 60.0,),
-                    onPressed: (){}
+                    onPressed: (){
+                      Navigator.pop(context);
+                    }
                   ),
                 )
               ],

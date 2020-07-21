@@ -1,36 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:shoesapp/Pages/PantallaDescripcion.dart';
 
 class ZapatoSize extends StatelessWidget {
   final bool fullscreen;
   ZapatoSize({this.fullscreen = false});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: (this.fullscreen)?5.0:30.0,
-        vertical: (this.fullscreen)?5.0:0.0
-        ),
-      child: Container(
-        width: double.infinity,
-        height: (this.fullscreen)?350:430.0,
-        decoration: BoxDecoration(
-          color: Colors.orange[300],
-          borderRadius: (this.fullscreen)?
-          BorderRadius.only(
-            bottomLeft: Radius.circular(50.0),
-            bottomRight: Radius.circular(50.0),
-            topLeft: Radius.circular(10.0),
-            topRight: Radius.circular(10.0),
-          )
-          :
-          BorderRadius.circular(50.0)
-        ),
+    return GestureDetector( 
+      onTap: (){
+        if(!this.fullscreen){
+          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>PantallaDescripsion()));
+        }
+      },
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: (this.fullscreen)?5.0:30.0,
+          vertical: (this.fullscreen)?5.0:0.0
+          ),
+        child: Container(
+          width: double.infinity,
+          height: (this.fullscreen)?350:430.0,
+          decoration: BoxDecoration(
+            color: Colors.orange[300],
+            borderRadius: (this.fullscreen)?
+            BorderRadius.only(
+              bottomLeft: Radius.circular(50.0),
+              bottomRight: Radius.circular(50.0),
+              topLeft: Radius.circular(10.0),
+              topRight: Radius.circular(10.0),
+            )
+            :
+            BorderRadius.circular(50.0)
+          ),
 
-        child: Column(
-          children: [
-            _ZapatoConSombra(),
-            if(!this.fullscreen)_ZapatoTallas()
-          ],
+          child: Column(
+            children: [
+              _ZapatoConSombra(),
+              if(!this.fullscreen)_ZapatoTallas()
+            ],
+          ),
         ),
       ),
     );
@@ -41,7 +49,7 @@ class _ZapatoConSombra extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(50.0),
+      padding: EdgeInsets.all(40.0),
       child: Stack(
         children: [
           Positioned(

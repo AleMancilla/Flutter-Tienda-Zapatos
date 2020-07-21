@@ -10,12 +10,12 @@ class ZapatoPage extends StatelessWidget {
       body: Column(
         children: [
           CustomAppBar("For You"),
-          SizedBox(height: 20.0,),
+          SizedBox(height: 5.0,),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  ZapatoSize(),
+                  Hero( tag: "clave1",child:ZapatoSize()), 
                   ZapatosDescripcion(
                     titulo: 'Nike Air Max 720',
                     descripcion: "The Nike Air Max 720 goes bigger than ever before with Nike's taller Air unit yet, offering more air underfoot for unimaginable, all-day comfort. Has Air Max gone too far? We hope so.",
